@@ -1,0 +1,8 @@
+{
+  "id": "kunde-4711",
+  "model": "terra",
+  "engine": "h250",
+  "color": "blue",
+  "rims": "r19_sport",
+  "packages": ["sport", "winter", "comfort"]
+}

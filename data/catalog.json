@@ -1,0 +1,112 @@
+{
+  "options": {
+    "engine": {
+      "p150": { "name": "1.5 Benziner, 150 PS" },
+      "d200": { "name": "2.0 Diesel, 200 PS, Allrad" },
+      "h250": { "name": "Plug-in-Hybrid, 250 PS, Allrad" },
+      "e220": { "name": "Elektro, 220 kW" }
+    },
+    "color": {
+      "white": { "name": "Polarweiß" },
+      "black": { "name": "Onyxschwarz" },
+      "red": { "name": "Signalrot" },
+      "blue": { "name": "Tiefseeblau" },
+      "matte_green": { "name": "Mattgrün (Sonderlack)" }
+    },
+    "rims": {
+      "r17_aero": { "name": "17\" Aero" },
+      "r18_comfort": { "name": "18\" Comfort" },
+      "r19_sport": { "name": "19\" Sport" },
+      "r20_offroad": { "name": "20\" Offroad" }
+    },
+    "packages": {
+      "sport": { "name": "Sportpaket" },
+      "offroad": { "name": "Offroad-Paket" },
+      "towing": { "name": "Anhängerpaket" },
+      "winter": { "name": "Winterpaket" },
+      "comfort": { "name": "Komfortpaket" }
+    }
+  },
+
+  "models": {
+    "aero": {
+      "name": "Syfra Aero",
+      "available": {
+        "engine": ["p150", "h250", "e220"],
+        "color": ["white", "black", "red", "blue"],
+        "rims": ["r17_aero", "r18_comfort", "r19_sport"],
+        "packages": ["sport", "towing", "winter", "comfort"]
+      }
+    },
+    "terra": {
+      "name": "Syfra Terra",
+      "available": {
+        "engine": ["d200", "h250", "e220"],
+        "color": ["white", "black", "blue", "matte_green"],
+        "rims": ["r18_comfort", "r19_sport", "r20_offroad"],
+        "packages": ["sport", "offroad", "towing", "winter", "comfort"]
+      }
+    },
+    "volt": {
+      "name": "Syfra Volt",
+      "available": {
+        "engine": ["e220"],
+        "color": ["white", "red", "blue"],
+        "rims": ["r17_aero", "r18_comfort"],
+        "packages": ["winter", "comfort"]
+      }
+    }
+  },
+
+  "rules": [
+    {
+      "id": "sport-not-with-p150",
+      "type": "excludes",
+      "when": { "field": "engine", "any_of": ["p150"] },
+      "then": { "field": "packages", "any_of": ["sport"] },
+      "message": "Das Sportpaket ist mit dem 150-PS-Benziner nicht kombinierbar."
+    },
+    {
+      "id": "towing-not-with-ev",
+      "type": "excludes",
+      "when": { "field": "engine", "any_of": ["e220"] },
+      "then": { "field": "packages", "any_of": ["towing"] },
+      "message": "Das Anhängerpaket ist für den Elektroantrieb nicht freigegeben."
+    },
+    {
+      "id": "sport-requires-sport-rims",
+      "type": "requires",
+      "when": { "field": "packages", "any_of": ["sport"] },
+      "then": { "field": "rims", "any_of": ["r19_sport"] },
+      "message": "Das Sportpaket erfordert die 19\"-Sportfelgen (r19_sport)."
+    },
+    {
+      "id": "offroad-requires-awd",
+      "type": "requires",
+      "when": { "field": "packages", "any_of": ["offroad"] },
+      "then": { "field": "engine", "any_of": ["d200", "h250"] },
+      "message": "Das Offroad-Paket benötigt einen Allradmotor (d200 oder h250)."
+    },
+    {
+      "id": "offroad-requires-offroad-rims",
+      "type": "requires",
+      "when": { "field": "packages", "any_of": ["offroad"] },
+      "then": { "field": "rims", "any_of": ["r20_offroad"] },
+      "message": "Das Offroad-Paket erfordert die 20\"-Offroadfelgen (r20_offroad)."
+    },
+    {
+      "id": "offroad-excludes-sport",
+      "type": "excludes",
+      "when": { "field": "packages", "any_of": ["offroad"] },
+      "then": { "field": "packages", "any_of": ["sport"] },
+      "message": "Offroad-Paket und Sportpaket schließen sich aus (unterschiedliches Fahrwerk)."
+    },
+    {
+      "id": "matte-green-only-with-offroad",
+      "type": "requires",
+      "when": { "field": "color", "any_of": ["matte_green"] },
+      "then": { "field": "packages", "any_of": ["offroad"] },
+      "message": "Mattgrün gibt es nur zusammen mit dem Offroad-Paket."
+    }
+  ]
+}

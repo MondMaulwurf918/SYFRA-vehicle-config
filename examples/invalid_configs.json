@@ -1,0 +1,68 @@
+[
+  {
+    "id": "fehlende-angaben",
+    "model": "aero",
+    "color": "red"
+  },
+  {
+    "id": "tippfehler-farbe",
+    "model": "aero",
+    "engine": "h250",
+    "color": "blak",
+    "rims": "r18_comfort"
+  },
+  {
+    "id": "tippfehler-feldname",
+    "model": "aero",
+    "engine": "h250",
+    "colour": "black",
+    "rims": "r18_comfort"
+  },
+  {
+    "id": "motor-nicht-fuer-modell",
+    "model": "volt",
+    "engine": "d200",
+    "color": "white",
+    "rims": "r17_aero"
+  },
+  {
+    "id": "sportpaket-mit-150ps",
+    "model": "aero",
+    "engine": "p150",
+    "color": "black",
+    "rims": "r19_sport",
+    "packages": ["sport"]
+  },
+  {
+    "id": "elektro-mit-anhaengerpaket",
+    "model": "terra",
+    "engine": "e220",
+    "color": "blue",
+    "rims": "r18_comfort",
+    "packages": ["towing"]
+  },
+  {
+    "id": "offroad-ohne-allrad",
+    "model": "terra",
+    "engine": "e220",
+    "color": "white",
+    "rims": "r20_offroad",
+    "packages": ["offroad"]
+  },
+  {
+    "id": "falscher-datentyp",
+    "model": "aero",
+    "engine": 250,
+    "color": "red",
+    "rims": "r18_comfort",
+    "packages": "winter"
+  },
+  {
+    "id": "mehrere-fehler",
+    "model": "aero",
+    "engine": "p150",
+    "color": "matte_green",
+    "rims": "r19_sport",
+    "packages": ["sport", "sport"]
+  }
+]

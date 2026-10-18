@@ -1,0 +1,41 @@
+[
+  {
+    "id": "aero-hybrid-sport",
+    "model": "aero",
+    "engine": "h250",
+    "color": "red",
+    "rims": "r19_sport",
+    "packages": ["sport", "winter"]
+  },
+  {
+    "id": "terra-diesel-offroad",
+    "model": "terra",
+    "engine": "d200",
+    "color": "matte_green",
+    "rims": "r20_offroad",
+    "packages": ["offroad", "towing"]
+  },
+  {
+    "id": "volt-basis",
+    "model": "volt",
+    "engine": "e220",
+    "color": "white",
+    "rims": "r17_aero"
+  },
+  {
+    "id": "aero-benziner-anhaenger",
+    "model": "aero",
+    "engine": "p150",
+    "color": "blue",
+    "rims": "r17_aero",
+    "packages": ["comfort", "towing"]
+  },
+  {
+    "id": "terra-elektro-sport",
+    "model": "terra",
+    "engine": "e220",
+    "color": "black",
+    "rims": "r19_sport",
+    "packages": ["sport", "comfort"]
+  }
+]
