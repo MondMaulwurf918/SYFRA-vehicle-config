@@ -14,7 +14,9 @@ Jeder Fehler wird mit Feld, verständlicher Meldung und einem festen Fehlercode 
 Voraussetzung: Python 3.10 oder neuer. Das Programm selbst braucht nur die Standardbibliothek, für die Tests wird `pytest` benötigt.
 
 ```bash
-git clone <repo-url> && cd syfra-vehicle-config
+git clone https://github.com/MondMaulwurf918/SYFRA-vehicle-config.git
+cd SYFRA-vehicle-config
+
 
 # Beispiele prüfen
 python -m vehicle_config examples/valid_configs.json
